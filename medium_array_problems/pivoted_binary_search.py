@@ -1,5 +1,5 @@
 def binary_search(arr, low, high, key):
-    while low<high:
+    while low<=high:
         mid = low + (high - low) // 2
         if arr[mid] == key:
             return mid
@@ -34,11 +34,13 @@ def pivoted_binary_search(arr,n, key):
     if arr[pivot] == key:
         return pivot
     
-    if arr[pivot] <= key:
+    if arr[0] <= key:
         return binary_search(arr, 0, pivot -1, key)
     
     return binary_search(arr, pivot + 1, n-1, key)
 
-arr = [5, 6, 7, 8, 9, 10, 1, 2, 3]
-key = 3
+# arr = [5, 6, 7, 8, 9, 10, 1, 2, 3]
+# key = 3
+arr = [4, 5, 6, 7, 0, 1, 2]
+key = 0
 print(pivoted_binary_search(arr, len(arr), key))
